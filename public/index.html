@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(() => {
+      let name;
+      $('#Click').click(() =>{
+        name = $('#name').val();
+
+        $.post('http://localhost:3000/info', {name: name},
+        function(data) {
+          if(data === 'done'){
+            window.location.href = "/nextpage"
+          }
+        })
+      })
+    })
+  </script>
+</head>
+<body>
+<input name="name" id="name" type="text">
+<button id="Click" type="button">Click</button>
+</body>
+</html>
